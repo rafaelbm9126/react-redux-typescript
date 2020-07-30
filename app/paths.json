@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "assets/*": [
+        "src/assets/*"
+      ],
+      "components/*": [
+        "src/components/*"
+      ],
+      "helpers/*": [
+        "src/helpers/*"
+      ],
+      "pages/*": [
+        "src/pages/*"
+      ]
+    }
+  }
+}
