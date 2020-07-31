@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  EmailValid,
-  IsEmpty,
-} from "helpers/index";
+import { EmailValid, IsEmpty } from "helpers/index";
 import {
   Field,
   MessageError,
@@ -13,18 +10,16 @@ import {
 import IconEyeOpen from "assets/images/open_eye.svg";
 import IconEyeClose from "assets/images/close_eye.svg";
 
+export { MessageError };
+
 interface Props {
   placeholder: string;
   default?: string;
   change: (value: string) => void;
 }
 
-export const Input: React.FunctionComponent<Props> = (props) => {
+export const InputEmail: React.FunctionComponent<Props> = (props) => {
   const [error, setError] = React.useState(false);
-  const [value, setValue] = React.useState("");
-  React.useEffect(() => {
-    props.change(value);
-  }, [value]);
   return (
     <>
       <Field>
@@ -33,37 +28,41 @@ export const Input: React.FunctionComponent<Props> = (props) => {
           <InputComponent
             type="text"
             onInput={(e: React.FormEvent<HTMLInputElement>) => {
-              setError(!EmailValid(e.currentTarget.value));
-              setValue(e.currentTarget.value);
+              const {
+                currentTarget: { value },
+              } = e;
+              setError(!EmailValid(value));
+              props.change(value);
             }}
             placeholder={props.placeholder}
-            defaultValue={props.default} />
+            defaultValue={props.default}
+          />
         </WrapperInput>
       </Field>
     </>
   );
-}
+};
 
 export const InputPassword: React.FunctionComponent<Props> = (props) => {
   const [error, setError] = React.useState(false);
-  const [value, setValue] = React.useState("");
   const [open, setOpen] = React.useState(false);
-  React.useEffect(() => {
-    props.change(value);
-  }, [value]);
   return (
     <>
       <Field>
         <MessageError error={error}>Error campo requerido</MessageError>
         <WrapperInput>
           <InputComponent
-            type={ open ? "text" : "password"}
+            type={open ? "text" : "password"}
             onInput={(e: React.FormEvent<HTMLInputElement>) => {
+              const {
+                currentTarget: { value },
+              } = e;
               setError(IsEmpty(e.currentTarget.value));
-              setValue(e.currentTarget.value);
+              props.change(value);
             }}
             placeholder={props.placeholder}
-            defaultValue={props.default} />
+            defaultValue={props.default}
+          />
           <ImageOpenPass
             src={open ? IconEyeOpen : IconEyeClose}
             onClick={() => setOpen(!open)}
@@ -73,4 +72,4 @@ export const InputPassword: React.FunctionComponent<Props> = (props) => {
       </Field>
     </>
   );
-}
+};

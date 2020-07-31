@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Field = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 20px 0 0 0;
   width: 250px;
   height: fit-content;
 `;
@@ -13,11 +13,11 @@ interface MessageErrorProps {
 }
 
 export const MessageError = styled.span<MessageErrorProps>`
-  display: ${(props: MessageErrorProps) => props.error ? 'block' : 'none'};
+  display: ${(props) => (props.error ? "block" : "none")};
   font-size: 10px;
   color: red;
   &::before {
-      content: '* ';
+    content: "* ";
   }
 `;
 

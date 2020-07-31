@@ -1,20 +1,10 @@
 import React from "react";
-import {
-  Input,
-  InputPassword,
-} from "components/index";
+import { Login } from "components/index";
 
 export const Home: React.FunctionComponent<{}> = () => {
   return (
     <>
-      <Input
-        placeholder="Email"
-        change={(value) => console.log(value)}
-      />
-      <InputPassword
-        placeholder="Password"
-        change={(value) => console.log(value)}
-      />
+      <Login />
     </>
   );
 };

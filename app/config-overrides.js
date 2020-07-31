@@ -15,8 +15,8 @@ module.exports = {
     return function (proxy, allowedHost) {
       proxy = {
         '/api': {
-          target: 'http://192.81.211.252',
-          pathRewrite: { '^/api': '/' }
+          target: 'http://192.81.211.252:7080',
+          pathRewrite: { '^/api': '' }
         },
       }
       const config = configFunction(proxy, allowedHost);
