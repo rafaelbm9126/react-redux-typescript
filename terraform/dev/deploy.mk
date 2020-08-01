@@ -6,7 +6,7 @@ define load_key_value
 endef
 
 prune:
-	docker ps -aq -f name=${PROJECT_NAME} -f publish=3000 -f status=running | xargs -r docker stop
+	docker ps -aq -f name=${PROJECT_NAME} -f publish=4000 -f status=running | xargs -r docker stop
 	docker image prune -a -f
 
 credentials:

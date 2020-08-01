@@ -24,12 +24,12 @@ pipeline {
         }
         stage("install dependencies") {
           steps {
-          sh "npm install"
+          sh "cd app && npm install"
           }
         }
         stage("build source") {
           steps {
-            sh "npm run build"
+            sh "cd app && npm run build"
           }
         }
       }
