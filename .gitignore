@@ -37,4 +37,6 @@ passwd
 *.orig
 app/ng-src/index.html
 **/npm-debug.log
-
+.terraform
+*.tfvars
+.key
