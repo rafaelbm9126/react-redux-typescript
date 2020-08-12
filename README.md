@@ -1,4 +1,4 @@
-# Sheldon Web
+# React Redux Typescript
 
 ## start project
     - go to folder /app
